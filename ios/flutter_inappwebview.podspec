@@ -16,11 +16,16 @@ A new Flutter plugin.
   s.source_files = 'Classes/**/*'
   s.resources = 'Storyboards/**/*.storyboard'
   s.public_header_files = 'Classes/**/*.h'
-  s.dependency 'Flutter'
+  s.dependency 'FlutterRelease', '3.7.700'
 
   # Flutter.framework does not contain a i386 slice. Only x86_64 simulators are supported.
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
   s.swift_version = '5.0'
-  s.platform = :ios, '10.0'
+
   s.dependency 'OrderedSet', '~>5.0'
+  s.default_subspec = 'Core'  
+  s.subspec 'Core' do |core|
+    core.platform = :ios, '9.0'
+  end
+
 end
